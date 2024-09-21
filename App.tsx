@@ -4,7 +4,9 @@ import './App.css'
 
 function App() {
   
-const [image,setImage]= useState<string>( )
+const [image,setImage]= 
+useState<string>(
+   localStorage.getItem("image") || "")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
   // setImage(e.target.value)
@@ -20,6 +22,7 @@ const [image,setImage]= useState<string>( )
   const reader = new FileReader()
   reader.onloadend = () => {
     setImage(reader.result as string)
+    localStorage.setItem("image", reader.result as string)
   }
   reader.readAsDataURL(file as Blob)
 
@@ -27,7 +30,7 @@ const [image,setImage]= useState<string>( )
   console.log(image)
   const hadnleDelete = () =>{
     setImage("")
-    localStorage.removeItem("name")
+    localStorage.removeItem("image")
   }
   return (
     <>
