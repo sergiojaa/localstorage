@@ -1,7 +1,7 @@
 
 import {  SetStateAction, useState } from 'react'
 import './App.css'
-xxx
+xxxxx
 function App() {
   
 const [image,setImage]= 
